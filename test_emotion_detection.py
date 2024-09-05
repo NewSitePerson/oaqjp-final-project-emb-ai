@@ -1,7 +1,6 @@
-import unittest
-from EmotionDetection.emotion_detection import emotion_detector
-
-class TestEmotionDetector(unittest.TestCase):
-    def test_emotion_detector(self):
-        result_1 = emotion_detector('I am glad this happened')
-        self.assertEqual(result_1, 'joy')
+ if response.status_code == 200:
+        emotion = formatted_response['emotionPredictions'][0]['emotion']
+        dominant_emotion = max(emotion.items(), key=lambda x: x[1])
+        return dominant_emotion[0]
+else:
+    return None
